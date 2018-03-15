@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <style>
+        div {
+            /*height: 200px;*/
+            width: 100%;
+            background-color: powderblue;
+        }
+        .fit {
+            display: block;
+            max-width: 80%;
+            /*max-height: 99%;*/
+            margin-left: auto;
+            margin-right: auto
+        }
+        .indent
+        {
+            padding-top: 1.5em
+        }
+        .center
+        {
+            text-align:center;
+            vertical-align:middle
+        }
+        .noDot
+        {
+            list-style-type: none;
+        }
+    </style>
+    <script type="text/javascript" src= "./scripts/todolist_library.js"></script>
+</head>
+<a>
+<div class="center">
+    <ul >
+        <% todolist.forEach(function(item,index){ %>
+            <li class="noDot"><a href="/todoList/remove/<%=index%>" >✘</a><%= item %></li>
+        <% }); %>
+    </ul>
+
+    <form id="myForm" class="indent center" method="POST" action="/todoList/add">
+        <h1><%= name %></h1>
+        <input type="text" name="item" ><br>
+    </form>
+    <!-- <button class='fit' onclick="addToList('myForm','form_warning')">Ajouter à la liste</button>-->
+
+    <p class='center' style="color:red;font-weight: bold;" id="form_warning">
+    </p>
+
+    <script>
+
+    </script>
+
+</div>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+
+</body>
+</html>
